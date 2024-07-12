@@ -17,8 +17,10 @@ using namespace std;
 //	}
 
 // Cau 6
-//void NhapNgauNhien(int arr[], int n) {		
-//			arr[0] = rand() %100;
+//void NhapNgauNhien(int arr[], int n) {
+//	for(int i=0;i<n;i++) {
+//		arr[i] = rand() %100;
+//	}			
 //	}
 
 // Cau 7	
