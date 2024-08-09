@@ -152,13 +152,33 @@ int Node2Cay(Tree root) {
     return count + Node2Cay(root->pLeft) + Node2Cay(root->pRight);
 }
 
-//Cau 6
+//Cau 6, Cau 7
 int Node1Cay(Tree root) {
     if (root == nullptr) {
         return 0;
     }
     int count = ((root->pLeft != nullptr && root->pRight == nullptr) || (root->pLeft == nullptr && root->pRight != nullptr)) ? 1 : 0;
     return count + Node1Cay(root->pLeft) + Node1Cay(root->pRight);
+}
+
+// Cau 8
+int SoNode(Tree root) {
+    if (root == nullptr) {
+        return 0;
+    }
+    if (root->pLeft == nullptr && root->pRight == nullptr) {
+        return 1;
+    }
+    return SoNode(root->pLeft) + SoNode(root->pRight);
+}
+// Cau 9
+int chieuCaoCay(Tree root) {
+    if (root == nullptr) {
+        return -1; 
+    }
+    int leftHeight = chieuCaoCay(root->pLeft);
+    int rightHeight = chieuCaoCay(root->pRight);
+    return 1 + max(leftHeight, rightHeight);
 }
 
 
@@ -248,6 +268,15 @@ int main() {
                 break;
             case 7:
                 cout<<"\nTong so Node 1 cay la: "<<Node1Cay(root)<<"\n";
+                break;
+            case 8:
+                cout<<"\nTong so Node  cay con phai la: "<<Node1Cay(root)<<"\n";
+                break;
+            case 9:
+                cout<<"\nSo Node  cay  la: "<<SoNode(root)<<"\n";
+                break;
+            case 10:
+                cout<<"\nChieu Cao  cay  la: "<<chieuCaoCay(root)<<"\n";
                 break;
             case 0:
                 destroyTree(root);
